@@ -5,21 +5,36 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
+  Navigate,
 } from "react-router-dom";
 
 import LoginForm from "./pages/LoginForm";
 import EmployeeRegistration from "./pages/EmployeeRegistration";
 import AdminLayout from "./layout/AdminLayout";
 import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import PublicRoute from "./routes/PublicRoute";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/login" element={<LoginForm />} />
+      {/* Default app entry */}
+      <Route path="/" element={<Navigate to="/login" replace />} />
 
-      <Route element={<AdminLayout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/employee/registration" element={<EmployeeRegistration />} />
+      {/* Public routes */}
+      <Route element={<PublicRoute />}>
+        <Route path="/login" element={<LoginForm />} />
+      </Route>
+
+      {/* Protected admin routes */}
+      <Route element={<ProtectedRoute />}>
+        <Route element={<AdminLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/employee/registration"
+            element={<EmployeeRegistration />}
+          />
+        </Route>
       </Route>
     </>
   )
