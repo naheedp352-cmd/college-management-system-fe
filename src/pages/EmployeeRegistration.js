@@ -3,6 +3,7 @@ import "./css/EmployeeRegistration.module.css";
 
 const EmployeeForm = () => {
   return (
+<>
     <div
       className="container mt-5 d-flex justify-content-center"
       
@@ -122,6 +123,7 @@ const EmployeeForm = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

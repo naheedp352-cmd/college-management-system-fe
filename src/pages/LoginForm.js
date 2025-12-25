@@ -1,9 +1,6 @@
-import React from "react";
-import "./css/LoginForm.module.css";
-import { useState } from "react";
-
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";    
+import React, { useEffect, useState } from "react";
+import styles from "./css/LoginForm.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
@@ -12,59 +9,59 @@ export default function LoginForm() {
 
   useEffect(() => {
     if (localStorage.getItem("user-info")) {
-      navigate.push("/add");
+      navigate("/login");
     }
-  }, []);
+  }, [navigate]);
 
-  async function login() {
-    console.warn(email, password);
-    let item = { email, password };
-    let result = await fetch("http://localhost:8000/api/login", {
+  async function login(e) {
+    e.preventDefault();
+
+    const item = { email, password };
+
+    const response = await fetch("https://api.escuelajs.co/api/v1/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
       },
       body: JSON.stringify(item),
     });
-    result = await result.json();
+
+    const result = await response.json();
+    if (response.status !== 201 && response.status !== 200) {
+      alert("Login failed. Please check your credentials.");
+      return;
+    }
     localStorage.setItem("user-info", JSON.stringify(result));
-    navigate.push("/add");
+    navigate("/dashboard");
   }
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <form>
-        <div className="title">
-          <h1>Login Form</h1>
-        </div>
+    <div className={styles.wrapper}>
+      <div className={styles.card}>
+        <h1 className={styles.title}>Login</h1>
 
-        <div>
+        <form onSubmit={login}>
           <input
             type="email"
-            placeholder="Enter Your Email"
-            name="email"
+            placeholder="Email address"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
-        </div>
 
-        <div>
           <input
             type="password"
-            placeholder="Enter Your Password"
-            name="password"
+            placeholder="Password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
-        </div>
-        <div class="text-center">
-          <button class="btn btn-primary" onClick={login} type="submit">
-            Login
-          </button>
-        </div>
-        {/* <button type="button" class="btn btn-primary" onClick={login} type="submit">
-          Login
-        </button> */}
-      </form>
+
+          <button type="submit">Sign In</button>
+        </form>
+        <p>Email: john@mail.com</p>
+        <p>Password: changeme</p>
+      </div>
     </div>
   );
 }

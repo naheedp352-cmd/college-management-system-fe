@@ -1,14 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-
-// pages
-import LoginForm from "./pages/LoginForm";
-import EmployeeRegistration from "./pages/EmployeeRegistration";
-
-
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -16,13 +7,21 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import LoginForm from "./pages/LoginForm";
+import EmployeeRegistration from "./pages/EmployeeRegistration";
+import AdminLayout from "./layout/AdminLayout";
+import Dashboard from "./pages/Dashboard";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      <Route path="login" element={<LoginForm />} />
+    <>
+      <Route path="/login" element={<LoginForm />} />
 
-      <Route path="employee/registration" element={<EmployeeRegistration />} />
-    </Route>
+      <Route element={<AdminLayout />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/employee/registration" element={<EmployeeRegistration />} />
+      </Route>
+    </>
   )
 );
 
@@ -32,5 +31,3 @@ root.render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
-
-reportWebVitals();

@@ -1,0 +1,45 @@
+.dashboard {
+  width: 100%;
+}
+
+/* Page heading */
+.heading {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #2c2c54;
+}
+
+/* KPI cards layout */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Card design */
+.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 26px;
+  font-weight: 600;
+  color: #667eea;
+}
