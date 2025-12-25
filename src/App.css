@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -27,12 +27,25 @@
 .App-link {
   color: #61dafb;
 }
+/* ul{
+  display: flex;
+    list-style: none;
+    justify-content: right;
+    padding-right: 30px;
+}
+li{
+  margin-right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+} */
 
-@keyframes App-logo-spin {
+
+
+ /* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+ } */
