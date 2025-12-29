@@ -1,0 +1,153 @@
+.container {
+  width: 100%;
+}
+
+.heading {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* KPIs */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.kpiCard {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.kpiCard h4 {
+  font-size: 14px;
+  color: #666;
+}
+
+.kpiCard p {
+  font-size: 26px;
+  font-weight: 600;
+  color: #667eea;
+}
+
+/* Insights */
+.insights {
+  margin-bottom: 24px;
+}
+
+.insightCard {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Table */
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.addBtn {
+  background: #667eea;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 145px;
+  height: 40px;
+}
+
+.table {
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 14px;
+}
+
+.active {
+  color: #2ecc71;
+}
+
+.inactive {
+  color: #e74c3c;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit {
+  background: #f1c40f;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.delete {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* MODAL */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  width: 680px;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancel {
+  background: #ccc;
+  border: none;
+  padding: 8px 12px;
+}
+.cancel:hover {
+  background: #e74040;
+  border: none;
+  padding: 8px 12px;
+}
+
+.save {
+  background: #667eea;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+}

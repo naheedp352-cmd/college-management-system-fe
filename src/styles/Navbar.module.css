@@ -37,7 +37,7 @@
 
 /* Logout button */
 .logoutBtn {
-  background: #667eea;
+  background: #f26363;
   color: #ffffff;
   border: none;
   padding: 8px 14px;
@@ -48,5 +48,5 @@
 }
 
 .logoutBtn:hover {
-  background: #5a67d8;
+  background: #ea526c;
 }
